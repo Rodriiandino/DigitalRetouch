@@ -15,17 +15,51 @@
       <section class="container">
         <!-- Header -->
         <header class="container-button-top flex-center">
-          <button>Limpiar</button>
-          <button>Descargar</button>
+          <button class="btn">Limpiar</button>
+          <button class="btn">Descargar</button>
         </header>
         <!-- Body -->
         <div class="container-file flex-center">
           <input type="file" name="photo" id="photo" />
         </div>
-        <!-- Footer -->
-        <footer class="container-button-bottom flex-center">
-          <button>Brillo</button>
-        </footer>
+        <!-- Aside -->
+        <aside class="container-button-panel flex-center">
+          <div class="editor-panel flex-center">
+            <div class="filter flex-center">
+              <label class="title">Filters</label>
+              <div class="options flex-center">
+                <button id="brightness" class="btn active">Brightness</button>
+                <button id="saturation" class="btn">Saturation</button>
+                <button id="inversion" class="btn">Inversion</button>
+                <button id="grayscale" class="btn">Grayscale</button>
+              </div>
+              <div class="slider flex-center">
+                <div class="filter-info">
+                  <p class="name">Brighteness</p>
+                  <p class="value">100%</p>
+                </div>
+                <input
+                  class="range"
+                  type="range"
+                  value="50"
+                  min="0"
+                  max="100"
+                />
+              </div>
+            </div>
+            <div class="rotate flex-center">
+              <label class="title">Rotate</label>
+              <div class="options flex-center">
+                <button id="left" class="btn">
+                  <img src="./public/left.svg" alt="left-rotate" />
+                </button>
+                <button id="right" class="btn">
+                  <img src="./public/right.svg" alt="right-rotate" />
+                </button>
+              </div>
+            </div>
+          </div>
+        </aside>
       </section>
     </main>
     <footer>Lorem ipsum dolor sit amet consectetur adipisicing elit.</footer>
