@@ -15,19 +15,21 @@
       <section class="container">
         <!-- Header -->
         <header class="container-button-top flex-center">
-          <button class="btn">Limpiar</button>
-          <button class="btn">Descargar</button>
+          <button id="clean" class="btn">Clean</button>
+          <button id="change-img" class="btn">New Imagen</button>
+          <button id="download" class="btn">Download</button>
         </header>
         <!-- Body -->
         <div class="container-file flex-center">
-          <input type="file" name="photo" id="photo" />
+          <input type="file" id="file-input" accept="image/*" hidden />
+          <img id="img-preview" src="./public/yo.jpg" />
         </div>
         <!-- Aside -->
         <aside class="container-button-panel flex-center">
           <div class="editor-panel flex-center">
             <div class="filter flex-center">
               <label class="title">Filters</label>
-              <div class="options flex-center">
+              <div id="filter" class="options flex-center">
                 <button id="brightness" class="btn active">Brightness</button>
                 <button id="saturation" class="btn">Saturation</button>
                 <button id="inversion" class="btn">Inversion</button>
@@ -41,15 +43,15 @@
                 <input
                   class="range"
                   type="range"
-                  value="50"
+                  value="100"
                   min="0"
-                  max="100"
+                  max="200"
                 />
               </div>
             </div>
             <div class="rotate flex-center">
               <label class="title">Rotate</label>
-              <div class="options flex-center">
+              <div id="rotate" class="options flex-center">
                 <button id="left" class="btn">
                   <img src="./public/left.svg" alt="left-rotate" />
                 </button>
