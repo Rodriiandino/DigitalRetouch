@@ -108,6 +108,10 @@ body {
   background-attachment: fixed;
 }
 
+main {
+  height: calc(100vh - 80px);
+}
+
 img,
 video {
   max-width: 100%;
@@ -124,13 +128,6 @@ p {
   padding: 0;
 }
 
-main {
-  height: calc(100vh - 100px);
-  display: grid;
-  align-items: center;
-  justify-content: center;
-}
-
 label {
   font-size: var(--step-2);
   font-weight: 700;
@@ -138,12 +135,12 @@ label {
 }
 
 .container {
-  width: 66vw;
-  height: 70vh;
+  width: 70%;
+  height: 70%;
 
   display: grid;
   grid-template-columns: 30% 70%;
-  grid-template-rows: 20% 80%;
+  grid-template-rows: 15% 85%;
   grid-template-areas:
     'panel-button top-button'
     'panel-button file'
@@ -202,6 +199,13 @@ label {
 
 .active {
   border: 2px solid var(--second-color);
+}
+
+/************ header ************/
+
+.header {
+  text-align: center;
+  color: var(--fourth-color);
 }
 
 /************ fila-img ************/
@@ -272,4 +276,100 @@ label {
 
 .rotate {
   flex-direction: column;
+}
+
+/************  Footer ************/
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--main-colors);
+  font-size: var(--step--2);
+}
+
+.footer a {
+  padding-right: 0.3rem;
+}
+
+/************  Responsive ************/
+
+@media screen and (max-width: 1000px) {
+  .container-button-top {
+    padding: 0.5rem;
+  }
+
+  .container {
+    width: 80%;
+    height: 80%;
+    grid-template-columns: 35% 65%;
+  }
+  .btn {
+    width: 100px;
+    height: 40px;
+  }
+
+  .container-file {
+    padding: 0.5rem;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .container {
+    width: 90%;
+    height: 90%;
+
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 10% 61% 29%;
+
+    grid-template-areas:
+      'top-button'
+      'file'
+      'panel-button';
+  }
+
+  .btn {
+    width: 90px;
+  }
+
+  .container-button-panel {
+    padding: 0;
+  }
+
+  .title {
+    font-size: var(--step-1);
+  }
+
+  .filter-info p {
+    padding: 0;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .container {
+    width: 100%;
+    height: 100%;
+  }
+  .btn {
+    width: 80px;
+  }
+}
+
+@media screen and (max-width: 385px) {
+  .container {
+    grid-template-rows: 10% 58% 32%;
+  }
+
+  .btn {
+    width: 78px;
+    height: 38px;
+  }
+}
+
+@media screen and (max-height: 630px) {
+  .container {
+    width: 100%;
+    height: 100%;
+  }
 }

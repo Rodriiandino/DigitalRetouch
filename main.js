@@ -1,5 +1,5 @@
 const d = document
-const $btnDownload = d.getElementById('download')
+// const $btnDownload = d.getElementById('download')
 const $btnClean = d.getElementById('clean')
 const $rotateOptions = d.querySelectorAll('#rotate button')
 const $filterOptions = d.querySelectorAll('#filter button')
