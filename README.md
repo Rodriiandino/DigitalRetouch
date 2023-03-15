@@ -2,7 +2,7 @@
 # DigitalRetouch
 
 Page to edit Photos -->
-https://github.com/Rodriiandino
+https://digitalretouch.netlify.app/
 
 **made with:** html, css, javascript native
 
