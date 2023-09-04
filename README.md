@@ -1,12 +1,3 @@
 
 # DigitalRetouch
-
-Page to edit Photos -->
-https://digitalretouch.netlify.app/
-
-**made with:** html, css, javascript native
-
-
-## Authors
-
-- [@Rodriiandino](https://github.com/Rodriiandino)
+### Pagina en la cual se puede colocar filtros a las imagenes con javaScript vanilla.
