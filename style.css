@@ -288,8 +288,21 @@ label {
   font-size: var(--step--2);
 }
 
-.footer a {
+.github {
   padding-right: 0.3rem;
+}
+
+.github:hover {
+  animation: rotate 0.5s ease;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /************  Responsive ************/
@@ -306,7 +319,6 @@ label {
   }
   .btn {
     width: 100px;
-    height: 40px;
   }
 
   .container-file {

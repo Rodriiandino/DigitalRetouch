@@ -36,7 +36,6 @@ const load = () => {
 
   $imgPreview.src = objectURL
 
-  // filter reset
   $imgPreview.addEventListener('load', () => {
     init()
   })
@@ -46,8 +45,6 @@ const applyFilter = () => {
   $imgPreview.style.transform = `rotate(${rotate}deg)`
   $imgPreview.style.filter = `brightness(${brightness}%) saturate(${saturation}%) invert(${inversion}%) grayscale(${grayscale}%)`
 }
-
-// Rotate apply
 
 $rotateOptions.forEach(option => {
   option.addEventListener('click', () => {
@@ -59,8 +56,6 @@ $rotateOptions.forEach(option => {
     applyFilter()
   })
 })
-
-// Effect layout
 
 $filterOptions.forEach(option => {
   option.addEventListener('click', () => {
@@ -89,8 +84,6 @@ $filterOptions.forEach(option => {
   })
 })
 
-// Filter apply
-
 const changeFilter = () => {
   $filterValue.innerText = `${$filterSlider.value}%`
   const $selectedFilter = document.querySelector('.filter .active')
@@ -110,27 +103,39 @@ const download = () => {
   const canvas = document.createElement('canvas')
   const ctx = canvas.getContext('2d')
 
-  // Le doy al canvas el tamaño de la img
-  canvas.width = $imgPreview.naturalWidth
-  canvas.height = $imgPreview.naturalHeight
+  // Obtén las dimensiones originales de la imagen
+  const originalWidth = $imgPreview.naturalWidth
+  const originalHeight = $imgPreview.naturalHeight
 
-  // Le añado al lienzo los efecto
+  // Calcula las dimensiones del canvas después de aplicar la rotación
+  const radians = (rotate * Math.PI) / 180
+  const rotatedWidth =
+    Math.abs(Math.cos(radians) * originalWidth) +
+    Math.abs(Math.sin(radians) * originalHeight)
+  const rotatedHeight =
+    Math.abs(Math.sin(radians) * originalWidth) +
+    Math.abs(Math.cos(radians) * originalHeight)
+
+  // Establece las dimensiones del canvas según la rotación
+  canvas.width = rotatedWidth
+  canvas.height = rotatedHeight
+
+  // Mueve el canvas al centro
+  ctx.translate(rotatedWidth / 2, rotatedHeight / 2)
+
+  // Aplica los efectos al contexto antes de dibujar la imagen
   ctx.filter = `brightness(${brightness}%) saturate(${saturation}%) invert(${inversion}%) grayscale(${grayscale}%)`
 
-  // muevo el canvas al centro del lienzo
-  ctx.translate(canvas.width / 2, canvas.height / 2)
+  // Rota la imagen
+  ctx.rotate(radians)
 
-  if (rotate !== 0) {
-    ctx.rotate((rotate * Math.PI) / 180)
-  }
-
-  // dibujo laimagen dentro del canvas,
+  // Dibuja la imagen dentro del canvas
   ctx.drawImage(
-    $imgPreview, // imagen
-    -canvas.width / 2, // le quieto el sobrante del ancho
-    -canvas.height / 2, // le quieto el sobrante del alto
-    canvas.width, // Le asigno el tamaño de la imagen
-    canvas.height
+    $imgPreview,
+    -originalWidth / 2,
+    -originalHeight / 2,
+    originalWidth,
+    originalHeight
   )
 
   const link = document.createElement('a')
